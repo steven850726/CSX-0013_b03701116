@@ -9,6 +9,10 @@ html, body {
     }
 */
     
+    h1,h2{
+        font-size: 20px;
+        text-align: center;
+    }
 
     #ta {
         /*color:red;*/
@@ -16,20 +20,12 @@ html, body {
         text-indent: 100px;
         text-align: center;
     }
-
-    #ps{
-        color:red;
-    }
-
-    h1,h2{
-        font-size: 20px;
+    #button{
         text-align: center;
     }
-
-
     #container {
         top: 50px;
-        width: 800px;
+        width: 80%;
         /*height: auto;*/
         margin: 0 auto;
         display: block;
@@ -47,13 +43,24 @@ html, body {
     }
  
     #content {
-        width: 100%;
+        width: 48%;
         height: 350px;
         border: 1px solid darkolivegreen;
         border-radius: 5px;
         overflow: auto;
+        float: left;
     }
  
+    #answer {
+        width: 48%;
+        height: 350px;
+        border: 1px solid darkolivegreen;
+        border-radius: 5px;
+        overflow: auto;
+        float: right;
+    }
+
+
     #send-box {
         width: 100%;
         text-align: center;
@@ -68,13 +75,18 @@ html, body {
         margin: 10px;
         font-size: 15px;
     }
+
+    #ps{
+        color:red;
+    }
+
     input[name="name"] {
-        width: 10%;
+        width: 35%;
         /*height: 10%;*/
     }
  
     input[name="msg"] {
-        width: 70%;
+        width: 35%;
     }
  
     input[type="button"] {
@@ -87,17 +99,17 @@ html, body {
         padding: 5px 0 5px 10px;
     }
  
-    .msg > span {
-        width: 25%;
+    .msg span {
+        width: 40%;
         display: inline-block;
     }
  
-    .msg > span::before {
+    .msg span::before {
         color: darkred;
         content: " [ ";
     } 
  
-    .msg > span::after {
+    .msg span::after {
         color: darkred;
         content: " ]   : ";
         size: 100%;
