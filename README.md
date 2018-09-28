@@ -13,6 +13,12 @@ ii. Install Django,Anaconda
 
 iii. Learn Heroku and Git
 
+## Week2
+
+### In class:
+
+i. Learn HTML and CSS
+
 ### Homework Link:
 
 https://b03701116helloworldtest1.herokuapp.com
