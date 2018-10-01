@@ -6,4 +6,5 @@ from django.contrib.auth.models import User
 
 
 def index(request):
-	return render(request, 'guestbookver1.html')
+	questions = ['韓國','筆記本','三']
+	return render(request, 'guestbookver1.html', locals())
