@@ -7,8 +7,8 @@ from guestbook.models import Vocabulary
 
 
 def index(request):
-	#v1 = Vocabulary.objects.create(vocab='한국', meaning='韓國')
-	#v2 = Vocabulary.objects.create(vocab='공책', meaning='筆記本')
+	v1 = Vocabulary.objects.create(vocab='한국', meaning='韓國')
+	v2 = Vocabulary.objects.create(vocab='공책', meaning='筆記本')
 
 	questions = Vocabulary.objects.all()
 	#questions = ['韓國','筆記本','三']
