@@ -25,7 +25,7 @@ html, body {
     }
     #container {
         top: 50px;
-        width: 80%;
+        width: 100%;
         /*height: auto;*/
         margin: 0 auto;
         display: block;
@@ -43,7 +43,7 @@ html, body {
     }
  
     #content {
-        width: 48%;
+        width: 33%;
         height: 350px;
         border: 1px solid darkolivegreen;
         border-radius: 5px;
@@ -52,12 +52,12 @@ html, body {
     }
  
     #answer {
-        width: 48%;
+        width: 33%;
         height: 350px;
         border: 1px solid darkolivegreen;
         border-radius: 5px;
         overflow: auto;
-        float: right;
+        float: left;
     }
 
 
