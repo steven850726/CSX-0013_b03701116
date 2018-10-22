@@ -6,19 +6,19 @@
 <body>
 
 	<div class="button">
-        <button type="button" onclick="location.href='/'">上週輸入</button>
-        <button type="button" onclick="location.href='/'">全部範圍</button>
-        <button type="button" onclick="location.href='/create/'">加入單字</button>
-    </div>
+		<button type="button" onclick="location.href='/'">上週輸入</button>
+		<button type="button" onclick="location.href='/'">全部範圍</button>
+		<button type="button" onclick="location.href='/create/'">加入單字</button>
+	</div>
 
 	<form action="." method="POST">
-	    {% csrf_token %}
-	    {{ form.as_p }}
-	    <!--
-	    <input type="text" name="vocab" id="name" placeholder="單字">
-        <input type="text" name="meaning" id="msg" placeholder="意思">
-        -->
-	    <input type="submit" />
+		{% csrf_token %}
+		{{ form.as_p }}
+		<!--
+		<input type="text" name="vocab" id="name" placeholder="單字">
+		<input type="text" name="meaning" id="msg" placeholder="意思">
+		-->
+		<input type="submit" />
 	</form>
 
 </body>

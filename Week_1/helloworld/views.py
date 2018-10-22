@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from guestbook.models import Vocabulary
 
@@ -32,3 +33,53 @@ def create(request):
 	else:
 		form = NewVocab()
 		return render(request, 'create.html', locals())
+
+
+def login(request):
+
+	if request.user.is_authenticated: 
+		return redirect('/')
+
+	username = request.POST.get('username', '')
+	password = request.POST.get('password', '')
+
+	user = auth.authenticate(username=username, password=password)
+
+	if user is not None and user.is_active:
+		auth.login(request, user)
+		message = '登入成功！'
+		return redirect('/')
+	else:
+		message = '尚未登入成功！'
+		return render(request, 'login.html', locals())
+
+#	if user is not None:
+#		if user.is_active:
+#			auth.login(request,user)
+#			return redirect('/')
+#			message = '登入成功!'
+#		else:
+#			message = '帳號尚未啟用!'
+#	else:
+#		message = '登入失敗!'
+#	return render(request,"login.html",locals())
+
+def logout(request):
+
+	auth.logout(request)
+	return redirect('/')
+
+
+def register(request):
+
+	if request.method == 'POST':
+		form = UserCreationForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+#			_login(request,username,password)
+			return redirect('/login/')
+	else:
+		form = UserCreationForm()
+		message = '註冊失敗！請檢查輸入資訊'
+	return render(request, 'register.html',locals())
+

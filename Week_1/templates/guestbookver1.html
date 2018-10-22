@@ -2,85 +2,93 @@
 <html lang="zh">
 {% load  staticfiles %}
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Week2單字抽考器</title>
-    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet"  />
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Week2單字抽考器</title>
+	<link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet"  />
 </head>
 <body>
 
-    <h1>單字抽考器！</h1>
-    <h2>背單字背到快發瘋的時候想到應該可以試試看XD<br></h2>
-    <p id="ta">B03701116 林宇晨<br></p>
+	<h1>單字抽考器！</h1>
+	<h2>背單字背到快發瘋的時候想到應該可以試試看XD<br></h2>
+	<p id="ta">B03701116 林宇晨<br></p>
 
+	{% if request.user.is_authenticated %}
+			<p>{{request.user}} 您已經登入囉</p>
+	{% else %}
+			<p>您尚未登入喔～<a href="/login/">登入</a></p>
+	{% endif %}
 
-    <div id="container">
+	<div id="container">
 
-        <div class="button">
-            <button type="button" onclick="location.href='/'">上週輸入</button>
-            <button type="button" onclick="location.href='/'">全部範圍</button>
-            <button type="button" onclick="location.href='/create/'">加入單字</button>
-        </div>
+		<div class="button">
+			<button type="button" onclick="location.href='/'">上週輸入</button>
+			<button type="button" onclick="location.href='/'">全部範圍</button>
+			<button type="button" onclick="location.href='/create/'">加入單字</button>
+			<button type="button" onclick="location.href='/login/'">登入</button>
+			<button type="button" onclick="location.href='/logout/'">登出</button>
+			<button type="button" onclick="location.href='/register/'">註冊</button>
+		</div>
 
-        <div id="content">
-            {% for question in questions %}
-            <div class="msg">
-                <span class="name">第 {{ forloop.counter }} 題</span>
-                {{ question.meaning }}
-            </div>
-            {% endfor %}
-            <!-- <div class="msg">
-                <span class="name">第二題</span>
-                筆記本
-            </div> -->
+		<div id="content">
+			{% for question in questions %}
+			<div class="msg">
+				<span class="name">第 {{ forloop.counter }} 題</span>
+				{{ question.meaning }}
+			</div>
+			{% endfor %}
+			<!-- <div class="msg">
+				<span class="name">第二題</span>
+				筆記本
+			</div> -->
 
-        </div>
+		</div>
 
-        <div id="answer">
-            <div class="msg">
-                <span class="name">第一題</span>
-                한국
+		<div id="answer">
+			<div class="msg">
+				<span class="name">第一題</span>
+				한국
 
-            </div>
-            <div class="msg">
-                <span class="name">第二題</span>
-                공책
-            </div>
+			</div>
+			<div class="msg">
+				<span class="name">第二題</span>
+				공책
+			</div>
 
-        </div>
+		</div>
 
-        <div id="content">
-            {% for question in questions %}
-            <div class="msg">
-                <span class="name">第 {{ forloop.counter }} 題</span>
-                {{ question.vocab }}
-            </div>
-            {% endfor %}
-            <!-- <div class="msg">
-                <span class="name">第二題</span>
-                筆記本
-            </div> -->
+		<div id="content">
+			{% for question in questions %}
+			<div class="msg">
+				<span class="name">第 {{ forloop.counter }} 題</span>
+				{{ question.vocab }}
+			</div>
+			{% endfor %}
+			<!-- <div class="msg">
+				<span class="name">第二題</span>
+				筆記本
+			</div> -->
 
-        </div>
+		</div>
 
-        <div id="send-box">
-            <form id="send-form">
-                <input type="text" name="name" id="name" placeholder="答案">
-                <input type="submit" id="submit" value="送出">
-            </form>
+		<div id="send-box">
+			<form id="send-form">
+				<input type="text" name="name" id="name" placeholder="答案">
+				<input type="submit" id="submit" value="送出">
+			</form>
 
-            <!--
-            <form id="send-form" action="." method="post">
-                {% csrf_token %}
-                {{ form.as_p}}
-                <input type="text" name="vocab" id="name" placeholder="單字">
-                <input type="text" name="meaning" id="msg" placeholder="意思">
-                <input type="submit" id="submit" value="送出">
-            </form>
-            -->
-            <span id='ps'>PS:格子是假的，無法輸入ＸＤ</span>
-        </div>
-    </div>
+			<!--
+			<form id="send-form" action="." method="post">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<input type="text" name="vocab" id="name" placeholder="單字">
+				<input type="text" name="meaning" id="msg" placeholder="意思">
+				<input type="submit" id="submit" value="送出">
+			</form>
+			-->
+			<span id='ps'>PS:格子是假的，無法輸入ＸＤ</span>
+		</div>
+	</div>
 </body>
 
 </html>
