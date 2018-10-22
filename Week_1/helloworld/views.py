@@ -80,6 +80,6 @@ def register(request):
 			return redirect('/login/')
 	else:
 		form = UserCreationForm()
-		message = '註冊失敗！請檢查輸入資訊'
+		message = '尚未註冊成功！'
 	return render(request, 'register.html',locals())
 
