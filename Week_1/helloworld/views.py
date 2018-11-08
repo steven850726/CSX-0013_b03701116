@@ -19,6 +19,9 @@ def index(request):
 
 def create(request):
 
+	vocabularies = Vocabulary.objects.all()
+	#context = {'Vocabulary': vocabulary}
+	
 	class NewVocab(forms.ModelForm):
 		class Meta:
 			model = Vocabulary
@@ -82,4 +85,21 @@ def register(request):
 		form = UserCreationForm()
 		message = '尚未註冊成功！'
 	return render(request, 'register.html',locals())
+
+def delete(request, id):
+	vocabularies = Vocabulary.objects.get(id=id)
+	vocabularies.delete()
+	return redirect('/create/',locals())
+
+def edit(request, id):
+	vocabularies = Vocabulary.objects.get(id=id)
+	return render(request, 'edit.html', locals())
+
+def update(request, id):
+	vocabularies = Vocabulary.objects.get(id=id)
+	vocabularies.vocab = request.POST['vocab']
+	vocabularies.meaning = request.POST['meaning']
+	vocabularies.save()
+	return redirect('/create/')
+
 

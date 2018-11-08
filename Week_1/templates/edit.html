@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<form method="POST" action="update/{{ vocabularies.id }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="firstname">Vocab</label>
+            <input type="text" name="vocab" value="{{ vocabularies.vocab }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Meaning</label>
+            <input type="text" name="meaning" value="{{ vocabularies.meaning }}" required="required"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Update</button>
+        </div>
+    </form>
+	
+</body>
+</html>

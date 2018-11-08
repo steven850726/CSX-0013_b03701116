@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
@@ -24,4 +25,7 @@ urlpatterns = [
 	path('login/',views.login),
 	path('logout/',views.logout),
 	path('register/',views.register),
+	url(r'delete/(?P<id>\d+)$', views.delete, name='delete'),
+	url(r'edit/(?P<id>\d+)$', views.edit, name='edit'),
+	url(r'^edit/update/(?P<id>\d+)$', views.update, name='update'),
 ]

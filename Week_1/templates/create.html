@@ -21,5 +21,24 @@
 		<input type="submit" />
 	</form>
 
+<table class="table table-bordered">
+	<thead class="alert-warning">
+		<tr>
+			<th>Vocabulary</th>
+			<th>Meaning</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for vocabulary in vocabularies %}
+		<tr>
+			<td>{{ vocabulary.vocab }}</td>
+			<td>{{ vocabulary.meaning }}</td>
+			<td><center><a class="btn btn-sm btn-warning" href="/edit/{{ vocabulary.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="/delete/{{ vocabulary.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
 </body>
 </html>
